@@ -8,5 +8,4 @@ public class MyUnitTest {
 	public void testFirstTest() {
 		Assert.assertEquals(2 + 2, 4);
 	}
-
 }
