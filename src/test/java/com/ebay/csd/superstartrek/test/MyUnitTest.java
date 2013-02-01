@@ -1,6 +1,7 @@
-package test.java;
+package com.ebay.csd.superstartrek.test;
 
-import org.junit.*;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class MyUnitTest {
 	
