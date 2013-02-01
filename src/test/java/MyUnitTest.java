@@ -6,6 +6,6 @@ public class MyUnitTest {
 	
 	@Test
 	public void testFirstTest() {
-		Assert.assertEquals(2 + 3, 5);
+		Assert.assertEquals(2 + 4, 6);
 	}
 }
