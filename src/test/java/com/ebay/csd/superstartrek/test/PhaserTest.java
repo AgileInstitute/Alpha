@@ -4,19 +4,28 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import com.ebay.csd.superstartrek.Phaser;
+import com.ebay.csd.superstartrek.SubSystem;
 public class PhaserTest {
 
 	@Test
 	public void phaserTakesDamage(){
-		Phaser phaser = new Phaser();
+		SubSystem phaser = new Phaser(1000);
 		int firePower = 300;
 		phaser.takesDamage(firePower);
-		Assert.assertEquals(3, phaser.timeToRepair());
+		Assert.assertEquals(7, phaser.remainingStarDate());
 	}
 
 	@Test
 	public void checkPhaserLifeAtCreation(){
-		Phaser phaser = new Phaser();
-		Assert.assertEquals(0, phaser.timeToRepair());
+		SubSystem phaser = new Phaser(1000);
+		Assert.assertEquals(10, phaser.remainingStarDate());
+	}
+	
+	@Test
+	public void repairPhaser(){
+		SubSystem phaser = new Phaser(1000);
+		phaser.takesDamage(600);
+		phaser.repair(2);
+		Assert.assertEquals(600,phaser.getRemainingEnergy());
 	}
 }

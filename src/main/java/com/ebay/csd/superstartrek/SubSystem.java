@@ -2,15 +2,23 @@ package com.ebay.csd.superstartrek;
 
 public abstract class SubSystem {
 
-	private int starDate;
+	protected int starDate;
 	
-	public Object timeToRepair() {
+	public Object remainingStarDate() {
 		return starDate;
 	}
 
 	public void takesDamage(int firePower) {
-		starDate += firePower/energyPerStardate();
+		starDate -= firePower/energyPerStardate();
 	}
 
+	public void repair(int repairStarDays) {
+		starDate += repairStarDays;
+	}
+	
 	public abstract int energyPerStardate();
+
+	public int getRemainingEnergy() {
+		return starDate*energyPerStardate();
+	}
 }

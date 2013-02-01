@@ -9,11 +9,19 @@ import com.ebay.csd.superstartrek.WarpEngine;
 public class WarpEngineTest {
 
 	@Test
+	public void repairWarpEngine(){
+		SubSystem engine = new WarpEngine(1200);
+		engine.takesDamage(600);
+		engine.repair(2);
+		Assert.assertEquals(720,engine.getRemainingEnergy());
+	}
+	
+	@Test
 	public void warpEngineTakesDamage(){
-		SubSystem engine = new WarpEngine();
+		SubSystem engine = new WarpEngine(1200);
 		int firePower = 300;
 		engine.takesDamage(firePower);
-		Assert.assertEquals(5, engine.timeToRepair());
+		Assert.assertEquals(15, engine.remainingStarDate());
 	}
 	
 }
