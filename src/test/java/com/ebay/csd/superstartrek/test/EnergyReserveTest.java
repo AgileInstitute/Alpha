@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.ebay.csd.superstartrek.EnergyReserve;
 import com.ebay.csd.superstartrek.Shield;
 import com.ebay.csd.superstartrek.SubSystem;
 import com.ebay.csd.superstartrek.WarpEngine;

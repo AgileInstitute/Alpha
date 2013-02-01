@@ -1,4 +1,4 @@
-package com.ebay.csd.superstartrek.test;
+package com.ebay.csd.superstartrek;
 
 public class EnergyReserve {
 	
