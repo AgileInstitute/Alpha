@@ -9,23 +9,23 @@ public class PhaserTest {
 
 	@Test
 	public void phaserTakesDamage(){
-		SubSystem phaser = new Phaser(1000);
+		SubSystem phaser = new Phaser();
 		int firePower = 300;
 		phaser.takesDamage(firePower);
-		Assert.assertEquals(7, phaser.remainingStarDate());
+		Assert.assertEquals(-3, phaser.remainingStarDate());
 	}
 
 	@Test
 	public void checkPhaserLifeAtCreation(){
-		SubSystem phaser = new Phaser(1000);
-		Assert.assertEquals(10, phaser.remainingStarDate());
+		SubSystem phaser = new Phaser();
+		Assert.assertEquals(0, phaser.remainingStarDate());
 	}
 	
 	@Test
 	public void repairPhaser(){
-		SubSystem phaser = new Phaser(1000);
+		SubSystem phaser = new Phaser();
 		phaser.takesDamage(600);
 		phaser.repair(2);
-		Assert.assertEquals(600,phaser.getRemainingEnergy());
+		Assert.assertEquals(-4,phaser.remainingStarDate());
 	}
 }

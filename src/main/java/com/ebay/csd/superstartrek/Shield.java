@@ -2,8 +2,12 @@ package com.ebay.csd.superstartrek;
 
 public class Shield {
 
-	private int energy = 1000;
+	private int energy;
 	
+	public Shield(int startingShields) {
+		this.energy = startingShields;
+	}
+
 	public int getEnergy() {
 		return energy;
 	}

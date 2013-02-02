@@ -2,7 +2,11 @@ package com.ebay.csd.superstartrek;
 
 public class EnergyReserve {
 	
-	int energy = 6000;
+	int energy;
+
+	public EnergyReserve(int startingEnergy) {
+		energy = startingEnergy;
+	}
 
 	public int getEnergy() {
 		return energy;

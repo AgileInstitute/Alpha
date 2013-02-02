@@ -4,7 +4,7 @@ public abstract class SubSystem {
 
 	protected int starDate;
 	
-	public Object remainingStarDate() {
+	public int remainingStarDate() {
 		return starDate;
 	}
 

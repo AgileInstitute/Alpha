@@ -10,18 +10,18 @@ public class WarpEngineTest {
 
 	@Test
 	public void repairWarpEngine(){
-		SubSystem engine = new WarpEngine(1200);
+		SubSystem engine = new WarpEngine();
 		engine.takesDamage(600);
 		engine.repair(2);
-		Assert.assertEquals(720,engine.getRemainingEnergy());
+		Assert.assertEquals(-8,engine.remainingStarDate());
 	}
 	
 	@Test
 	public void warpEngineTakesDamage(){
-		SubSystem engine = new WarpEngine(1200);
+		SubSystem engine = new WarpEngine();
 		int firePower = 300;
 		engine.takesDamage(firePower);
-		Assert.assertEquals(15, engine.remainingStarDate());
+		Assert.assertEquals(-5, engine.remainingStarDate());
 	}
 	
 }
