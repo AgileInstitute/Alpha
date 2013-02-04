@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.ebay.csd.superstartrek.Position;
@@ -12,6 +13,15 @@ import com.ebay.csd.superstartrek.StarBase;
 import com.ebay.csd.test.superstartrek.RandomMock;
 
 public class ShipTest {
+	
+	private Ship enterprise;
+
+	@Before
+	public void createDefaultShip(){
+		int startingEnergy = 1000;
+		int startingShields = 100;
+		enterprise = new Ship(startingEnergy, startingShields);
+	}
 
 	@Test
 	public void hasEnergyReserve() {
@@ -81,9 +91,6 @@ public class ShipTest {
 	@Test
 	public void getCurrentShipPosition(){
 		Position pos = new Position (3,5);
-		int startingEnergy = 1000;
-		int startingShields = 100;
-		Ship enterprise = new Ship(startingEnergy, startingShields);
 		enterprise.setPosition(pos);
 		Assert.assertEquals(3, enterprise.getPosition().getX());
 		Assert.assertEquals(5, enterprise.getPosition().getY());
@@ -91,26 +98,17 @@ public class ShipTest {
 
 	@Test
 	public void shipIsDocked() {
-		int startingEnergy = 1000;
-		int startingShields = 100;
-		Ship enterprise = new Ship(startingEnergy, startingShields);
 		enterprise.dock();
 		Assert.assertTrue(enterprise.isDocked());
 	}
 
 	@Test
 	public void shipIsNotDocked() {
-		int startingEnergy = 1000;
-		int startingShields = 100;
-		Ship enterprise = new Ship(startingEnergy, startingShields);
 		Assert.assertFalse(enterprise.isDocked());
 	}
 
 	@Test
 	public void shipIsUnDocked() {
-		int startingEnergy = 1000;
-		int startingShields = 100;
-		Ship enterprise = new Ship(startingEnergy, startingShields);
 		enterprise.dock();
 		enterprise.unDock();
 		Assert.assertFalse(enterprise.isDocked());
@@ -118,9 +116,6 @@ public class ShipTest {
 
 	@Test
 	public void hitAShipWhenDocked() {
-		int startingEnergy = 1000;
-		int startingShields = 100;
-		Ship enterprise = new Ship(startingEnergy, startingShields);
 		enterprise.dock();
 		enterprise.hit(1000);
 		Assert.assertEquals(1000, enterprise.getEnergyReserve());
@@ -131,9 +126,6 @@ public class ShipTest {
 
 	@Test
 	public void shipNearStarBase() {
-		int startingEnergy = 1000;
-		int startingShields = 100;
-		Ship enterprise = new Ship(startingEnergy, startingShields);
 		List<StarBase> starBases = new ArrayList<StarBase>();
 		starBases.add(new StarBase(new Position(3, 5)));
 		starBases.add(new StarBase(new Position(4, 5)));
@@ -157,9 +149,6 @@ public class ShipTest {
 	
 	@Test
 	public void shipNotNearStarBase() {
-		int startingEnergy = 1000;
-		int startingShields = 100;
-		Ship enterprise = new Ship(startingEnergy, startingShields);
 		List<StarBase> starBases = new ArrayList<StarBase>();
 		starBases.add(new StarBase(new Position(1, 2)));
 		starBases.add(new StarBase(new Position(2, 1)));
