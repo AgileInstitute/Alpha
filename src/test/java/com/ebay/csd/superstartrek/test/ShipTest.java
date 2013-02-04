@@ -1,11 +1,17 @@
 package com.ebay.csd.superstartrek.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 import com.ebay.csd.superstartrek.RandomNumberGenerator;
 import com.ebay.csd.superstartrek.Ship;
 import com.ebay.csd.test.superstartrek.RandomMock;
+import com.ebay.csd.superstartrek.Position;
+import com.ebay.csd.superstartrek.Ship;
+import com.ebay.csd.superstartrek.StarBase;
 
 public class ShipTest {
 
@@ -75,4 +81,67 @@ public class ShipTest {
 		Assert.assertEquals(-1, ship.phaserHealth());
 	}
 
+	@Test
+	public void getCurrentShipPosition(){
+		Position pos = new Position (3,5);
+		int startingEnergy = 1000;
+		int startingShields = 100;
+		Ship enterprise =  new Ship (startingEnergy, startingShields);
+		enterprise.setPosition(pos);
+		Assert.assertEquals(3, enterprise.getPosition().getX());
+		Assert.assertEquals(5, enterprise.getPosition().getY());
+	}
+
+	@Test
+	public void shipIsDocked(){
+		int startingEnergy = 1000;
+		int startingShields = 100;
+		Ship enterprise =  new Ship (startingEnergy, startingShields);
+		enterprise.dock();
+		Assert.assertTrue(enterprise.isDocked());
+	}
+	
+	@Test
+	public void shipIsNotDocked(){
+		int startingEnergy = 1000;
+		int startingShields = 100;
+		Ship enterprise =  new Ship (startingEnergy, startingShields);
+		Assert.assertFalse(enterprise.isDocked());
+	}
+	
+	@Test
+	public void shipIsUnDocked(){
+		int startingEnergy = 1000;
+		int startingShields = 100;
+		Ship enterprise =  new Ship (startingEnergy, startingShields);
+		enterprise.dock();
+		enterprise.unDock();
+		Assert.assertFalse(enterprise.isDocked());
+	}
+	
+	@Test
+	public void hitAShipWhenDocked(){
+		int startingEnergy = 1000;
+		int startingShields = 100;
+		Ship enterprise =  new Ship (startingEnergy, startingShields);
+		enterprise.dock();
+		enterprise.hit(1000);
+		Assert.assertEquals(1000, enterprise.getEnergyReserve());		
+		Assert.assertEquals(100, enterprise.getShields());		
+		Assert.assertEquals(0, enterprise.phaserHealth());
+		Assert.assertEquals(0, enterprise.phaserHealth());
+	}
+	
+	@Test
+	public void shipNearStarBase(){
+		int startingEnergy = 1000;
+		int startingShields = 100;
+		Ship enterprise =  new Ship (startingEnergy, startingShields);
+		List <StarBase> starBases = new ArrayList<StarBase>();
+		starBases.add(new StarBase(new Position(3,5)));
+		enterprise.setPosition(new Position(4,4));
+		List <StarBase> nearestStarBases = enterprise.getNearestStarBase(starBases);
+	}
+	
 }
+

@@ -7,10 +7,12 @@ public class Ship {
 
 	private EnergyReserve energyReserve;
 	private Shield shield;
+	private Position pos = new Position (0,0);
 	private WarpEngine warpEngine = new WarpEngine();
 	private Phaser phaser = new Phaser();
 	private List<SubSystem> subsystems = new ArrayList<SubSystem>();
 	private RandomNumberGenerator rand;
+	private boolean dock = false;
 	
 	public Ship(int startingEnergy) {
 		this.energyReserve = new EnergyReserve(startingEnergy);
@@ -40,6 +42,8 @@ public class Ship {
 	}
 
 	public void hit(int i) {
+		if (isDocked())
+			return;
 		int overflow = i;
 		if (this.shield != null) {
 			overflow = this.shield.absorb(overflow);
@@ -77,6 +81,32 @@ public class Ship {
 		for (SubSystem subsystem: subsystems) {
 			subsystem.repair(i);
 		}
+	}
+
+	public void setPosition(Position pos) {
+		this.pos = pos;
+	}
+	
+	public Position getPosition(){
+		return pos;
+	}
+
+	public void dock() {
+		dock = true;
+		
+	}
+
+	public boolean isDocked() {
+		return dock;
+	}
+
+	public void unDock() {
+		dock = false;
+	}
+
+	public List<StarBase> getNearestStarBase(List<StarBase> starBases) {
+		List <StarBase> NearestStarBases = new ArrayList <StarBase> ();
+		return NearestStarBases;
 	}
 
 }
