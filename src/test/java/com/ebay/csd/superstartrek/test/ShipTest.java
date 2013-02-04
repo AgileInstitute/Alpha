@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.ebay.csd.superstartrek.Position;
@@ -12,6 +13,8 @@ import com.ebay.csd.superstartrek.StarBase;
 import com.ebay.csd.test.superstartrek.RandomMock;
 
 public class ShipTest {
+
+	private Ship enterprise;
 
 	@Test
 	public void hasEnergyReserve() {
@@ -98,19 +101,20 @@ public class ShipTest {
 		Assert.assertTrue(enterprise.isDocked());
 	}
 
-	@Test
-	public void shipIsNotDocked() {
+	@Before
+	public void createDefaultShip() {
 		int startingEnergy = 1000;
 		int startingShields = 100;
-		Ship enterprise = new Ship(startingEnergy, startingShields);
+		enterprise = new Ship(startingEnergy, startingShields);
+	}
+	
+	@Test
+	public void shipIsNotDocked() {
 		Assert.assertFalse(enterprise.isDocked());
 	}
 
 	@Test
 	public void shipIsUnDocked() {
-		int startingEnergy = 1000;
-		int startingShields = 100;
-		Ship enterprise = new Ship(startingEnergy, startingShields);
 		enterprise.dock();
 		enterprise.unDock();
 		Assert.assertFalse(enterprise.isDocked());
@@ -118,15 +122,12 @@ public class ShipTest {
 
 	@Test
 	public void hitAShipWhenDocked() {
-		int startingEnergy = 1000;
-		int startingShields = 100;
-		Ship enterprise = new Ship(startingEnergy, startingShields);
 		enterprise.dock();
 		enterprise.hit(1000);
 		Assert.assertEquals(1000, enterprise.getEnergyReserve());
 		Assert.assertEquals(100, enterprise.getShields());
 		Assert.assertEquals(0, enterprise.phaserHealth());
-		Assert.assertEquals(0, enterprise.phaserHealth());
+		Assert.assertEquals(0, enterprise.warpEngineHealth());
 	}
 
 	@Test
