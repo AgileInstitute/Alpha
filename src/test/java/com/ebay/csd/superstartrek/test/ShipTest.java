@@ -1,10 +1,13 @@
 package com.ebay.csd.superstartrek.test;
 
+import java.util.ArrayList;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 import com.ebay.csd.superstartrek.Position;
 import com.ebay.csd.superstartrek.Ship;
+import com.ebay.csd.superstartrek.StarBase;
 
 public class ShipTest {
 
@@ -97,6 +100,14 @@ public class ShipTest {
 		Assert.assertEquals(100, enterprise.getShields());		
 		Assert.assertEquals(0, enterprise.phaserHealth());
 		Assert.assertEquals(0, enterprise.phaserHealth());
+	}
+	
+	@Test
+	public void nearestStarBase(){
+		int startingEnergy = 1000;
+		int startingShields = 100;
+		Ship enterprise =  new Ship (startingEnergy, startingShields);
+		List <StarBase> starBases = new ArrayList<StarBase>();
 	}
 	
 }
