@@ -7,6 +7,7 @@ public class Ship {
 	private Position pos = new Position (0,0);
 	private WarpEngine warpEngine = new WarpEngine();
 	private Phaser phaser = new Phaser();
+	private boolean dock = false;
 	
 	public Ship(int startingEnergy) {
 		this.energyReserve = new EnergyReserve(startingEnergy);
@@ -55,6 +56,19 @@ public class Ship {
 	
 	public Position getPosition(){
 		return pos;
+	}
+
+	public void dock() {
+		dock = true;
+		
+	}
+
+	public boolean isDocked() {
+		return dock;
+	}
+
+	public void unDock() {
+		dock = false;
 	}
 
 }

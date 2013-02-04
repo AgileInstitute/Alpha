@@ -48,6 +48,7 @@ public class ShipTest {
 		Assert.assertEquals(-4, ship.phaserHealth());
 	}
 	
+	@Test
 	public void getCurrentShipPosition(){
 		Position pos = new Position (3,5);
 		int startingEnergy = 1000;
@@ -58,4 +59,32 @@ public class ShipTest {
 		Assert.assertEquals(5, enterprise.getPosition().getY());
 	}
 
+	@Test
+	public void shipIsDocked(){
+		int startingEnergy = 1000;
+		int startingShields = 100;
+		Ship enterprise =  new Ship (startingEnergy, startingShields);
+		enterprise.dock();
+		Assert.assertTrue(enterprise.isDocked());
+	}
+	
+	@Test
+	public void shipIsNotDocked(){
+		int startingEnergy = 1000;
+		int startingShields = 100;
+		Ship enterprise =  new Ship (startingEnergy, startingShields);
+		Assert.assertFalse(enterprise.isDocked());
+	}
+	
+	@Test
+	public void shipIsUnDocked(){
+		int startingEnergy = 1000;
+		int startingShields = 100;
+		Ship enterprise =  new Ship (startingEnergy, startingShields);
+		enterprise.dock();
+		enterprise.unDock();
+		Assert.assertFalse(enterprise.isDocked());
+	}
+	
 }
+
