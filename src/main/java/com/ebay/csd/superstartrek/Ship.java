@@ -7,11 +7,11 @@ public class Ship {
 
 	private EnergyReserve energyReserve;
 	private Shield shield;
-	private Position pos = new Position (0,0);
+	private Position pos = new Position(0, 0);
 	private WarpEngine warpEngine = new WarpEngine();
 	private Phaser phaser = new Phaser();
 	private boolean dock = false;
-	
+
 	public Ship(int startingEnergy) {
 		this.energyReserve = new EnergyReserve(startingEnergy);
 	}
@@ -52,20 +52,20 @@ public class Ship {
 	}
 
 	public int phaserHealth() {
-		return phaser .remainingStarDate();
+		return phaser.remainingStarDate();
 	}
 
 	public void setPosition(Position pos) {
 		this.pos = pos;
 	}
-	
-	public Position getPosition(){
+
+	public Position getPosition() {
 		return pos;
 	}
 
 	public void dock() {
 		dock = true;
-		
+
 	}
 
 	public boolean isDocked() {
@@ -76,8 +76,14 @@ public class Ship {
 		dock = false;
 	}
 
-	public List<StarBase> getNearestStarBase(List<StarBase> starBases) {
-		List <StarBase> NearestStarBases = new ArrayList <StarBase> ();
+	public List<StarBase> getNearestDockableStarBase(List<StarBase> starBases) {
+		List<StarBase> NearestStarBases = new ArrayList<StarBase>();
+		for (StarBase starBase : starBases) {
+			if ((Math.abs(starBase.getPosition().getX() - pos.getX()) <= 1)
+					|| (Math.abs(starBase.getPosition().getX() - pos.getX()) <= 1)) {
+				NearestStarBases.add(starBase);
+			}
+		}
 		return NearestStarBases;
 	}
 
