@@ -4,6 +4,7 @@ public class Ship {
 
 	private EnergyReserve energyReserve;
 	private Shield shield;
+	private Position pos = new Position (0,0);
 	private WarpEngine warpEngine = new WarpEngine();
 	private Phaser phaser = new Phaser();
 	
@@ -46,6 +47,14 @@ public class Ship {
 
 	public int phaserHealth() {
 		return phaser .remainingStarDate();
+	}
+
+	public void setPosition(Position pos) {
+		this.pos = pos;
+	}
+	
+	public Position getPosition(){
+		return pos;
 	}
 
 }

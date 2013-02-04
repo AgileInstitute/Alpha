@@ -3,6 +3,7 @@ package com.ebay.csd.superstartrek.test;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.ebay.csd.superstartrek.Position;
 import com.ebay.csd.superstartrek.Ship;
 
 public class ShipTest {
@@ -45,6 +46,16 @@ public class ShipTest {
 		Assert.assertEquals(599, ship.getEnergyReserve());		
 		Assert.assertEquals(0, ship.getShields());		
 		Assert.assertEquals(-4, ship.phaserHealth());
+	}
+	
+	public void getCurrentShipPosition(){
+		Position pos = new Position (3,5);
+		int startingEnergy = 1000;
+		int startingShields = 100;
+		Ship enterprise =  new Ship (startingEnergy, startingShields);
+		enterprise.setPosition(pos);
+		Assert.assertEquals(3, enterprise.getPosition().getX());
+		Assert.assertEquals(5, enterprise.getPosition().getY());
 	}
 
 }
