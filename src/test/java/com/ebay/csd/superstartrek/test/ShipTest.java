@@ -9,6 +9,7 @@ import org.junit.Test;
 import com.ebay.csd.superstartrek.Position;
 import com.ebay.csd.superstartrek.Ship;
 import com.ebay.csd.superstartrek.StarBase;
+import com.ebay.csd.test.superstartrek.RandomMock;
 
 public class ShipTest {
 
@@ -34,7 +35,9 @@ public class ShipTest {
 	public void hasWarpEngine() {
 		int startingEnergy = 1000;
 		int startingShields = 100;
-		Ship ship = new Ship(startingEnergy, startingShields);
+		RandomMock rand = new RandomMock();
+		rand.nextHit(0);
+		Ship ship = new Ship(startingEnergy, startingShields, rand);
 		ship.hit(500);
 		Assert.assertEquals(600, ship.getEnergyReserve());
 		Assert.assertEquals(0, ship.getShields());
@@ -45,16 +48,39 @@ public class ShipTest {
 	public void hasPhaser() {
 		int startingEnergy = 1000;
 		int startingShields = 100;
-		Ship ship = new Ship(startingEnergy, startingShields);
+		RandomMock rand = new RandomMock();
+		rand.nextHit(1);
+		Ship ship = new Ship(startingEnergy, startingShields, rand);
 		ship.hit(501);
 		Assert.assertEquals(599, ship.getEnergyReserve());
 		Assert.assertEquals(0, ship.getShields());
 		Assert.assertEquals(-4, ship.phaserHealth());
 	}
 
+	public void repairAllSubsystems() {
+		int startingEnergy = 1000;
+		Ship ship = new Ship(startingEnergy);
+		ship.damagePhaser(3);
+		ship.damageEngine(1);
+		ship.rest(2);
+		Assert.assertEquals(-1, ship.phaserHealth());
+		Assert.assertEquals(0, ship.warpEngineHealth());
+	}
+	
 	@Test
-	public void getCurrentShipPosition() {
-		Position pos = new Position(3, 5);
+	public void randomlyAssignDamageToSubsystem() {
+		int startingEnergy = 2;
+		int startingShields = 1;
+		RandomMock randmock = new RandomMock();
+		randmock.nextHit(1);
+		Ship ship = new Ship(startingEnergy, startingShields, randmock);
+		ship.hit(101);
+		Assert.assertEquals(-1, ship.phaserHealth());
+	}
+
+	@Test
+	public void getCurrentShipPosition(){
+		Position pos = new Position (3,5);
 		int startingEnergy = 1000;
 		int startingShields = 100;
 		Ship enterprise = new Ship(startingEnergy, startingShields);
