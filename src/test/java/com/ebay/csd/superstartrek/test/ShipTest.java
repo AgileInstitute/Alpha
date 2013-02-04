@@ -23,6 +23,7 @@ public class ShipTest {
 		enterprise = new Ship(startingEnergy, startingShields);
 	}
 
+
 	@Test
 	public void hasEnergyReserve() {
 		int startingEnergy = 1;
@@ -121,7 +122,7 @@ public class ShipTest {
 		Assert.assertEquals(1000, enterprise.getEnergyReserve());
 		Assert.assertEquals(100, enterprise.getShields());
 		Assert.assertEquals(0, enterprise.phaserHealth());
-		Assert.assertEquals(0, enterprise.phaserHealth());
+		Assert.assertEquals(0, enterprise.warpEngineHealth());
 	}
 
 	@Test
