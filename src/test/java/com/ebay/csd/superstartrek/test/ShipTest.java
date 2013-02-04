@@ -1,6 +1,7 @@
 package com.ebay.csd.superstartrek.test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -103,11 +104,14 @@ public class ShipTest {
 	}
 	
 	@Test
-	public void nearestStarBase(){
+	public void shipNearStarBase(){
 		int startingEnergy = 1000;
 		int startingShields = 100;
 		Ship enterprise =  new Ship (startingEnergy, startingShields);
 		List <StarBase> starBases = new ArrayList<StarBase>();
+		starBases.add(new StarBase(new Position(3,5)));
+		enterprise.setPosition(new Position(4,4));
+		List <StarBase> nearestStarBases = enterprise.getNearestStarBase(starBases);
 	}
 	
 }

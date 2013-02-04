@@ -1,5 +1,8 @@
 package com.ebay.csd.superstartrek;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Ship {
 
 	private EnergyReserve energyReserve;
@@ -71,6 +74,11 @@ public class Ship {
 
 	public void unDock() {
 		dock = false;
+	}
+
+	public List<StarBase> getNearestStarBase(List<StarBase> starBases) {
+		List <StarBase> NearestStarBases = new ArrayList <StarBase> ();
+		return NearestStarBases;
 	}
 
 }
