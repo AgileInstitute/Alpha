@@ -23,6 +23,8 @@ public class Ship {
 	}
 
 	public void hit(int i) {
+		if (isDocked())
+			return;
 		int overflow = i;
 		if (this.shield != null) {
 			overflow = this.shield.absorb(overflow);

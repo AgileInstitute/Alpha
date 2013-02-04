@@ -86,5 +86,18 @@ public class ShipTest {
 		Assert.assertFalse(enterprise.isDocked());
 	}
 	
+	@Test
+	public void hitAShipWhenDocked(){
+		int startingEnergy = 1000;
+		int startingShields = 100;
+		Ship enterprise =  new Ship (startingEnergy, startingShields);
+		enterprise.dock();
+		enterprise.hit(1000);
+		Assert.assertEquals(1000, enterprise.getEnergyReserve());		
+		Assert.assertEquals(100, enterprise.getShields());		
+		Assert.assertEquals(0, enterprise.phaserHealth());
+		Assert.assertEquals(0, enterprise.phaserHealth());
+	}
+	
 }
 
