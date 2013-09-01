@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite errors="0" failures="0" hostname="rob-myerss-macbook.local" name="test.java.MyUnitTest" tests="1" time="0.08" timestamp="2013-01-30T03:59:06">
+  <properties />
+  <testcase classname="test.java.MyUnitTest" name="testFirstTest" time="0.0010" />
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
