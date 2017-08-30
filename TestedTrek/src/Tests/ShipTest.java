@@ -42,5 +42,10 @@ public class ShipTest {
 		assertEquals(ship.getShields().getLevel(),(Shields.MAX_SHIELD_LEVEL-5000) + 1000);
 		
 	}
+	
+	@Test
+	public void transferTooMuchEnergyToSheildTest() {
+		
+	}
 
 }
