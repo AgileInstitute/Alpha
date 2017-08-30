@@ -1,24 +1,38 @@
 package Tests;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.Before;
+import StarTrek.Weapon;
 
 public class WeaponTest {
 
 
+	private Weapon weapon;
+	
+	@Before
+	public void setup() {
+		weapon = new Weapon();
+	}
+
+	
 	@Test
-	public void hitShieldDown() {
-		fail("Not yet implemented");
+	public void testWeaponInitallyUndamaged() {
+		assertTrue(weapon.isDamaged());
 	}
 	
 	@Test
-	public void hitShieldTakesAllDamage() {
-		fail("Not yet implemented");
+	public void hitShieldDown() {
+		weapon.damageTaken();
+		assertTrue(weapon.isDamaged());
 	}
+
 	
 	@Test
 	public void hitSheldTakesSomeOfDamage() {
-		fail("Not yet implemented");
+		weapon.damageTaken();
+		assertTrue(weapon.isDamaged());
 	}
 }
