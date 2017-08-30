@@ -19,6 +19,11 @@ public class ShieldsTests {
 	 public void maxShieldConstant(){
 			assertEquals(Shields.MAX_SHIELD_LEVEL, 10000);
 	 }
+	 
+	 @Test 
+	 public void minShieldConstant(){
+			assertEquals(Shields.MIN_SHIELD_LEVEL, 0);
+	 }
 	
 	@Test
 	public void defaultSheildTest() {
@@ -33,8 +38,27 @@ public class ShieldsTests {
 	}
 	
 	@Test
-	public void lessThanMaxShield(){
+	public void reduceShieldPowerTest(){
 		shields.increaseStrengthBy(-5);
 		assertEquals(9995, shields.getLevel());
+	}
+	
+
+	@Test
+	public void minShieldsTest(){
+		shields.increaseStrengthBy(-100000);
+		assertEquals(Shields.MIN_SHIELD_LEVEL, shields.getLevel());
+	}
+	
+	@Test
+	public void testShieldsUp() {
+		shields.raiseShield();
+		assertEquals(true, shields.isSheildUp());
+	}
+	
+	@Test
+	public void testLowerShield() {
+		shields.lowerShield();
+		assertEquals(false, shields.isSheildUp());
 	}
 }
