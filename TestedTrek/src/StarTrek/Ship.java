@@ -24,13 +24,16 @@ public class Ship {
 	
 	
 	public void transferEnergyToShield(int amount) {
+		
+		changeEnergy(amount);
 		getShields().increaseStrengthBy(amount);
-		changeEnergy(-amount);
 	}
 	
 	public void changeEnergy(int amount) {
-		//ToDo:ddff
-		setEnergyLevel(getEnergyLevel()+ amount);
+		if (getShields().getLevel() + amount > Shields.MAX_SHIELD_LEVEL) {
+			amount = Shields.MAX_SHIELD_LEVEL - getShields().getLevel();
+		}
+		setEnergyLevel(getEnergyLevel() - amount);
 		if (getEnergyLevel() < MIN_ENERGY_LEVEL) {
 			setEnergyLevel(MIN_ENERGY_LEVEL);
 		} else if (getEnergyLevel() > MAX_ENERGY_LEVEL) {
