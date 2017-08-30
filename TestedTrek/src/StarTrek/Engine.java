@@ -1,5 +1,5 @@
 package StarTrek;
 
-public class Engine {
+public class Engine extends SubSystem{
 
 }
