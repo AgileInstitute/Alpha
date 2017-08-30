@@ -7,7 +7,7 @@ public class Shields extends SubSystem{
 	private int level = MAX_SHIELD_LEVEL;
 
 	private boolean shieldUp = false;
-	
+		
 	public int getLevel() {
 		return level;
 	}
