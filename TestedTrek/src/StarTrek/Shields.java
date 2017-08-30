@@ -1,6 +1,6 @@
 package StarTrek;
 
-public class Shields {
+public class Shields extends SubSystem{
 	
 	public static final int MAX_SHIELD_LEVEL = 10000;
 	private int level = MAX_SHIELD_LEVEL;

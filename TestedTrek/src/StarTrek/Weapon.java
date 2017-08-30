@@ -1,5 +1,5 @@
 package StarTrek;
 
-public class Weapon {
+public class Weapon extends SubSystem{
 
 }
