@@ -54,9 +54,7 @@ public class ShipTest {
 
 	@Test
 	public void transferToShield_TooLittleShipEnergy() {
-		ship.getShields().increaseStrengthBy(Shields.MAX_SHIELD_LEVEL);
-		//assertEquals(ship.getEnergyLevel(), math here);
-		assertEquals(ship.getShields().getLevel(),Shields.MAX_SHIELD_LEVEL);
+		//NOT READY
 	}
 
 	

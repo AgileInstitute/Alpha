@@ -1,5 +1,6 @@
 package Tests;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -51,7 +52,7 @@ public class ShieldsTests {
 	}
 	
 	@Test
-	public void testShieldsUp() {
+	public void testShieldsUp() throws Exception {
 		shields.raiseShield();
 		assertEquals(true, shields.isSheildUp());
 	}
@@ -60,5 +61,35 @@ public class ShieldsTests {
 	public void testLowerShield() {
 		shields.lowerShield();
 		assertEquals(false, shields.isSheildUp());
+	}
+	
+	@Test
+	public void testWhenShieldIsDamaged() {
+		String errorMessage="";
+		shields.damage();
+		
+		
+		try{
+			shields.raiseShield();
+		}catch (Exception e) {
+			errorMessage = e.getMessage();
+		}
+		
+		assertTrue("Failed to read damage","Failed to raise shield, subsystem is damaged".equals(errorMessage));
+		
+	}
+	
+	@Test
+	public void testRepairDamage() {
+		String errorMessage="";
+		shields.repair();
+		
+		try{
+			shields.raiseShield();
+		}catch (Exception e) {
+			errorMessage = e.getMessage();
+		}
+		
+		assertTrue("Failed to repair damage","".equals(errorMessage));
 	}
 }
