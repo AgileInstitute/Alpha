@@ -75,7 +75,7 @@ public class ShieldsTests {
 			errorMessage = e.getMessage();
 		}
 		
-		assertTrue("Failed to read damage","Failed to raise shield, subsystem is damaged".equals(errorMessage));
+		assertTrue("Failed to read damage",Shields.DAMAGED_NOTICE.equals(errorMessage));
 		
 	}
 	
