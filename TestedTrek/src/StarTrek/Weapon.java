@@ -1,6 +1,6 @@
 package StarTrek;
 
-public class Weapon extends SubSystem{
+public class Weapon {
 
 	
 boolean isDamaged = true;
