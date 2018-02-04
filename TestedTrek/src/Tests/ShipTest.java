@@ -22,7 +22,7 @@ public class ShipTest {
 				
 		assertNotNull(ship.getShields());
 		
-		assertTrue(!ship.getShields().isSheildUp());
+		assertEquals(true, ship.getShields().isSheildUp());
 		
 		assertEquals(Shields.MAX_SHIELD_LEVEL, ship.getShields().getLevel());
 		

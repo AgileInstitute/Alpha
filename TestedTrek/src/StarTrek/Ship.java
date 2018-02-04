@@ -15,27 +15,14 @@ public class Ship {
 		this.shields = shields;
 	}
 
-	public int getEnergyLevel() {	
+	public int getEnergyLevel() {
+		
 		return energyLevel;
-	}
-	public void setEnergyLevel(int energyLevel) {
-		this.energyLevel = energyLevel;
 	}
 	
 	
 	public void transferEnergyToShield(int amount) {
-		getShields().increaseStrengthBy(amount);
-		changeEnergy(-amount);
+		
 	}
 	
-	public void changeEnergy(int amount) {
-		setEnergyLevel(getEnergyLevel()+ amount);
-		if (getEnergyLevel() < MIN_ENERGY_LEVEL) {
-			setEnergyLevel(MIN_ENERGY_LEVEL);
-		} else if (getEnergyLevel() > MAX_ENERGY_LEVEL) {
-			setEnergyLevel(MAX_ENERGY_LEVEL);
-		}
-	}
-	
-
 }
