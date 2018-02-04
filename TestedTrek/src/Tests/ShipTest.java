@@ -45,6 +45,7 @@ public class ShipTest {
 	
 	@Test
 	public void transferTooMuchEnergyToSheildTest() {
-		//to dofff
+		//to do
+	}
 
 }
