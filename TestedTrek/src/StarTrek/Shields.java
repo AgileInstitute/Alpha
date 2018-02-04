@@ -32,10 +32,6 @@ public class Shields extends SubSystem{
 	public boolean isSheildUp() {
 		return shieldUp;
 	}
-
-	public void setLevel(int level) {
-		this.level = level;
-	}
 	
 	
 

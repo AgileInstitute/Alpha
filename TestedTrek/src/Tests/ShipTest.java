@@ -44,20 +44,7 @@ public class ShipTest {
 	}
 	
 	@Test
-	public void transferToShield_TooMuchEnergy() {
-		ship.getShields().increaseStrengthBy(- 100);
-		int before = ship.getEnergyLevel();
-		ship.transferEnergyToShield(200);
-		assertEquals(ship.getEnergyLevel(), before - 100);
-		assertEquals(ship.getShields().getLevel(), Shields.MAX_SHIELD_LEVEL);
-	}
+	public void transferTooMuchEnergyToSheildTest() {
+		//to dofff
 
-	@Test
-	public void transferToShield_TooLittleShipEnergy() {
-		ship.getShields().increaseStrengthBy(Shields.MAX_SHIELD_LEVEL);
-		//assertEquals(ship.getEnergyLevel(), math here);
-		assertEquals(ship.getShields().getLevel(),Shields.MAX_SHIELD_LEVEL);
-	}
-
-	
 }
