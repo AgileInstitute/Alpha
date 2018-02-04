@@ -29,7 +29,7 @@ public class Ship {
 	}
 	
 	public void changeEnergy(int amount) {
-		//ToDo:dd
+		//ToDo:
 		setEnergyLevel(getEnergyLevel()+ amount);
 		if (getEnergyLevel() < MIN_ENERGY_LEVEL) {
 			setEnergyLevel(MIN_ENERGY_LEVEL);
