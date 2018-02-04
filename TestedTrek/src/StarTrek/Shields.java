@@ -1,7 +1,7 @@
 package StarTrek;
 
 public class Shields extends SubSystem{
-	public static String DAMAGED_NOTICE = "Failed to raise shield, subsystem is damaged";
+	
 	public static final int MAX_SHIELD_LEVEL = 10000;
 	public static final int MIN_SHIELD_LEVEL = 0;
 	private int level = MAX_SHIELD_LEVEL;
@@ -21,11 +21,7 @@ public class Shields extends SubSystem{
 		}
 	}
 
-	public void raiseShield() throws Exception{
-		if(damaged) {
-			throw new Exception(DAMAGED_NOTICE);
-		}
-		
+	public void raiseShield() {
 		shieldUp = true;
 	}
 

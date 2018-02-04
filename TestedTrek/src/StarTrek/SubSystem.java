@@ -7,11 +7,9 @@ public class SubSystem {
 		return damaged;
 	}
 
-	public void damage() {
-		this.damaged = true;
+	public void setDamaged(boolean damaged) {
+		this.damaged = damaged;
 	}
 
-	public void repair() {
-		this.damaged = false;
-	}
+	
 }
