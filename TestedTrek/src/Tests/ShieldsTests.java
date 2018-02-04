@@ -33,7 +33,7 @@ public class ShieldsTests {
 
 	@Test
 	public void maxShieldsTest(){
-		shields.increaseStrengthBy(Shields.MAX_SHIELD_LEVEL + 1);
+		shields.increaseStrengthBy(1);
 		assertEquals(Shields.MAX_SHIELD_LEVEL, shields.getLevel());
 	}
 	
@@ -46,7 +46,7 @@ public class ShieldsTests {
 
 	@Test
 	public void minShieldsTest(){
-		shields.increaseStrengthBy(Shields.MIN_SHIELD_LEVEL -1 );
+		shields.increaseStrengthBy(-100000);
 		assertEquals(Shields.MIN_SHIELD_LEVEL, shields.getLevel());
 	}
 	
